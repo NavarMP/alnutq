@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo.svg" alt="Al Nutq Logo" width={40} height={40} />
+              <Image src="/nutq logo.svg" alt="Al Nutq Logo" width={40} height={40} />
               <span className="font-bold">Zawiyah Al Nutq</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
@@ -145,7 +145,15 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">{t("copyright")}</p>
-            <p className="text-sm text-muted-foreground mt-2 md:mt-0">{t("developed_by")}</p>
+            <p className="text-sm text-muted-foreground mt-2 md:mt-0">
+              {t("developed_by")}
+              {/* <Link
+                href="https://NavarMP.DigiBayt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              > */}
+            </p>
           </div>
         </div>
       </div>

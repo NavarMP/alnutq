@@ -10,6 +10,7 @@ type LanguageContextType = {
   language: Language
   setLanguage: (language: Language) => void
   t: (key: string) => string
+  fontClass: string
 }
 
 // Simple translation system
@@ -89,20 +90,40 @@ const LanguageContext = createContext<LanguageContextType>({
   language: "en",
   setLanguage: () => {},
   t: (key) => key,
+  fontClass: "font-montserrat",
 })
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
+  const [fontClass, setFontClass] = useState("font-montserrat")
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["en", "ml", "ar"].includes(savedLanguage)) {
       setLanguage(savedLanguage)
+      updateFontClass(savedLanguage)
     }
   }, [])
 
+  const updateFontClass = (lang: Language) => {
+    switch (lang) {
+      case "en":
+        setFontClass("font-montserrat")
+        break
+      case "ml":
+        setFontClass("font-anek-malayalam")
+        break
+      case "ar":
+        setFontClass("font-monadi")
+        break
+      default:
+        setFontClass("font-montserrat")
+    }
+  }
+
   const changeLanguage = (newLanguage: Language) => {
     setLanguage(newLanguage)
+    updateFontClass(newLanguage)
     localStorage.setItem("language", newLanguage)
 
     // Set RTL for Arabic
@@ -114,7 +135,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t }}>{children}</LanguageContext.Provider>
+    <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t, fontClass }}>
+      <div className={fontClass}>{children}</div>
+    </LanguageContext.Provider>
   )
 }
 
