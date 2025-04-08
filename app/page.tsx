@@ -217,6 +217,20 @@ export default function HomePage() {
             </TabsContent>
 
             <TabsContent value="podcasts" className="w-full">
+              <div className="flex flex-col items-center justify-center py-20 text-center">
+                <div className="rounded-full bg-primary/10 p-6 mb-4">
+                  <HeadphonesIcon className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Podcasts Coming Soon</h3>
+                <p className="text-muted-foreground max-w-md">
+                  We're working on bringing you inspiring and educational Islamic podcasts. Stay tuned!
+                </p>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+
+            {/* <TabsContent value="podcasts" className="w-full">
               <motion.div
                 className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
                 variants={staggerContainer}
@@ -280,7 +294,7 @@ export default function HomePage() {
               </motion.div>
             </TabsContent>
           </Tabs>
-        </div>
+        </div> */}
       </section>
 
       {/* Mentorship Section */}

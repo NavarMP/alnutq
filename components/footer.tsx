@@ -146,13 +146,15 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">{t("copyright")}</p>
             <p className="text-sm text-muted-foreground mt-2 md:mt-0">
-              {t("developed_by")}
-              {/* <Link
+              {t("developed_by")} {" "}
+              <Link
                 href="https://NavarMP.DigiBayt.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              > */}
+                className="text-sm hover:text-primary transition-colors font-bold"
+              > 
+                {t("NavarMP")}
+              </Link>
             </p>
           </div>
         </div>
